@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <title>Loading Bar</title>
+</head>
+<style>
+  body {
+    background-color: rgb(218, 230, 240);
+    background-image: url('bg1.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    margin: 10px 10px 10px;
+    padding: 20px 170px 170px;
+    padding-top: 100px;
+  }
+
+  #myProgress {
+    width: 100%;
+    background-color: rgb(215, 215, 215);
+    box-shadow: 5px 5px 5px grey;
+  }
+
+  #myBar {
+    width: 10%;
+    height: 30px;
+    background-color: #32d2e8;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+  }
+
+  img {
+    padding-left: 300px;
+  }
+
+  button {
+    padding-left: 40px;
+    padding-right: 40px;
+    color: tomato;
+  }
+
+  h2 {
+    background-color: grey;
+    color: white;
+    font-family: monospace;
+    box-shadow: 5px 5px 5px #32d2e8;
+    font-style: oblique;
+    padding-left: 170px;
+  }
+
+  .center {
+    padding-left: 400px;
+  }
+</style>
+
+<body>
+
+  <h1>Loading... :)</h1>
+
+  <div id="myProgress">
+    <div id="myBar">10%</div>
+  </div>
+
+  <img src="Logo.png" alt="">
+  <fieldset>
+
+      <h2>Tekan tombol untuk ke website Institut Teknologi Kalimantan</h2>
+      <div class="center">
+      <button onclick="move()">Click</button><br><br>
+    </div>
+  </fieldset>
+
+
+  <script>
+    function move() {
+      var elem = document.getElementById("myBar");
+      var width = 1;
+      var id = setInterval(frame, 20);
+
+      function frame() {
+        if (width >= 100) {
+          clearInterval(id);
+          window.location.assign("https://itk.ac.id")
+        } else {
+          width++;
+          elem.style.width = width + '%';
+          elem.innerHTML = width * 1 + '%';
+        }
+      }
+    }
+    // window.onload = move;
+  </script>
+
+
+</body>
+
+</html>
